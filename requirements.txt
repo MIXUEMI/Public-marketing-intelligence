@@ -1,0 +1,34 @@
+# ===== Web 框架 =====
+fastapi>=0.110
+uvicorn[standard]>=0.29
+
+# ===== 配置与校验 =====
+pydantic>=2.6
+pydantic-settings>=2.2
+
+# ===== LLM / Agent 编排 =====
+langgraph>=0.2
+langchain-core>=0.2
+langchain-openai>=0.1
+httpx>=0.27
+
+# ===== RAG / 向量库 =====
+chromadb>=0.5
+langchain-chroma>=0.1
+# chromadb 0.6.x 的遥测依赖需 posthog<3.0（7.x 的 capture API 不兼容会报错；配合 anonymized_telemetry=False 禁用遥测，适配私有化部署）
+posthog<3.0.0
+# Embedding 模型（可选；缺失时自动降级内置 Mock 向量，保证私有化无外网可跑）
+sentence-transformers>=2.7
+
+# ===== 数据库 =====
+sqlalchemy>=2.0
+asyncpg>=0.29        # PostgreSQL 异步驱动（生产）
+aiosqlite>=0.19      # SQLite 异步驱动（测试）
+alembic>=1.13        # 数据库迁移
+
+# ===== 前端 Demo =====
+streamlit>=1.35
+
+# ===== 测试 =====
+pytest>=8.0
+pytest-asyncio>=0.23
